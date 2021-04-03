@@ -1,10 +1,9 @@
 package com.market.market.web.controller;
 
-import com.market.market.domain.ProductDomain;
+import com.market.market.domain.Product;
 import com.market.market.domain.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,28 +11,31 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/products")
 public class ProductController {
-
     @Autowired
     private ProductService productService;
 
-    public List<ProductDomain> getAll() {
+    @GetMapping("/all")
+    public List<Product> getAll() {
         return productService.getAll();
     }
 
-    public Optional<ProductDomain> getProduct(int productId) {
+    @GetMapping("/{id}")
+    public Optional<Product> getProduct(@PathVariable("id") int productId) {
         return productService.getProduct(productId);
     }
 
-    public Optional<List<ProductDomain>> getByCategory(int categoryId) {
+    @GetMapping("/category/{categoryId}")
+    public Optional<List<Product>> getByCategory(@PathVariable("categoryId") int categoryId) {
         return productService.getByCategory(categoryId);
     }
 
-    public ProductDomain saveProduct(ProductDomain productDomain) {
-        return productService.save(productDomain);
+    @PostMapping("/save")
+    public Product save(@RequestBody Product product) {
+        return productService.save(product);
     }
 
-    public boolean deleteProduct(int productId) {
+    @DeleteMapping("/delete/{id}")
+    public boolean delete(@PathVariable("id") int productId) {
         return productService.delete(productId);
     }
-
 }

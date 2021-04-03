@@ -1,7 +1,7 @@
 package com.market.market.persistence.mapper;
 
-import com.market.market.domain.CategoryDomain;
-import com.market.market.persistence.entity.Category;
+import com.market.market.domain.Category;
+import com.market.market.persistence.entity.Categoria;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -11,13 +11,12 @@ import org.mapstruct.Mappings;
 public interface CategoryMapper {
     @Mappings({
             @Mapping(source = "idCategoria", target = "categoryId"),
-            @Mapping(source = "description", target = "category"),
-            @Mapping(source = "state", target = "active")
-
+            @Mapping(source = "descripcion", target = "category"),
+            @Mapping(source = "estado", target = "active"),
     })
-    CategoryDomain toCategory(Category category);
+   Category toCategory(Categoria categoria);
 
     @InheritInverseConfiguration
-    @Mapping(target = "productList", ignore = true)
-    Category toCategoryDomain(CategoryDomain categoryDomain);
+    @Mapping(target = "productos", ignore = true)
+    Categoria toCategoria(Category category);
 }

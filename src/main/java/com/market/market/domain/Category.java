@@ -1,11 +1,10 @@
 package com.market.market.domain;
 
-public class CategoryDomain {
+public class Category {
 
     private int categoryId;
     private String category;
     private boolean active;
-
 
     public int getCategoryId() {
         return categoryId;
@@ -30,7 +29,4 @@ public class CategoryDomain {
     public void setActive(boolean active) {
         this.active = active;
     }
-
-
 }
-

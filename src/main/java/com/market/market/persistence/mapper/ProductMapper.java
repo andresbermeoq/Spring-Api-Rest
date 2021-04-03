@@ -1,7 +1,7 @@
 package com.market.market.persistence.mapper;
 
-import com.market.market.domain.ProductDomain;
-import com.market.market.persistence.entity.Product;
+import com.market.market.domain.Product;
+import com.market.market.persistence.entity.Producto;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -13,20 +13,20 @@ import java.util.List;
 public interface ProductMapper {
 
     @Mappings({
-            @Mapping(source = "idProducts", target = "productId"),
-            @Mapping(source = "name", target = "name"),
-            @Mapping(source = "idCategories", target = "categoryId"),
-            @Mapping(source = "salePrice", target = "price"),
-            @Mapping(source = "stockLot", target = "stock"),
-            @Mapping(source = "state", target = "active"),
-            @Mapping(source = "categoryAdd", target = "category")
+            @Mapping(source = "idProducto", target = "productId"),
+            @Mapping(source = "nombre", target = "name"),
+            @Mapping(source = "idCategoria", target = "categoryId"),
+            @Mapping(source = "precioVenta", target = "price"),
+            @Mapping(source = "cantidadStock", target = "stock"),
+            @Mapping(source = "estado", target = "active"),
+            @Mapping(source = "categoria", target = "category")
 
     })
-    ProductDomain toProduct(Product product);
-    List<ProductDomain> toProducts(List<Product> products);
+    Product toProduct(Producto producto);
+    List<Product> toProducts(List<Producto> productos);
 
     @InheritInverseConfiguration
-    @Mapping(target = "barcode", ignore = true)
-    Product toProductDomain(ProductDomain productDomain);
+    @Mapping(target = "codigoBarras", ignore = true)
+    Producto toProducto(Product product);
 }
 
