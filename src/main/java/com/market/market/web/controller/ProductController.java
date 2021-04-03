@@ -11,6 +11,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/products")
 public class ProductController {
+
     @Autowired
     private ProductService productService;
 
@@ -24,8 +25,8 @@ public class ProductController {
         return productService.getProduct(productId);
     }
 
-    @GetMapping("/category/{categoryId}")
-    public Optional<List<Product>> getByCategory(@PathVariable("categoryId") int categoryId) {
+    @GetMapping("/category/{id}")
+    public Optional<List<Product>> getByCategory(@PathVariable("id") int categoryId) {
         return productService.getByCategory(categoryId);
     }
 

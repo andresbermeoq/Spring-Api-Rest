@@ -8,7 +8,7 @@ public class Product {
     private double price;
     private int stock;
     private boolean active;
-    private Category category;
+    private Category categ  ory;
 
     public int getProductId() {
         return productId;
