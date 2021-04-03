@@ -1,6 +1,6 @@
 package com.market.market.domain;
 
-public class ProductDomain {
+public class Product {
 
     private int productId;
     private String name;
@@ -8,7 +8,7 @@ public class ProductDomain {
     private double price;
     private int stock;
     private boolean active;
-    private CategoryDomain category;
+    private Category category;
 
     public int getProductId() {
         return productId;
@@ -58,11 +58,11 @@ public class ProductDomain {
         this.active = active;
     }
 
-    public CategoryDomain getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(CategoryDomain categoryDomain) {
-        this.category = categoryDomain;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
